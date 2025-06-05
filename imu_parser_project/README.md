@@ -57,8 +57,6 @@ make clean && make
 ```bash
 sudo ./build/imu_parser  # Requires sudo for /dev/tty1
 ```
-on mac sudo isn't required for using the virtual ports
-
 
 
 ### Running with Virtual Ports (for testing)
