@@ -1,5 +1,18 @@
 # IMU Parser Project
 
+## Directory Setup
+imu_parser_project/ 
+├── src/ 
+    └── imu_parser_api.cpp 
+    └── imu_parser_api.h 
+    └── main.cpp 
+├── test/ 
+│ └── imu_simulator.py 
+├── Makefile 
+├── README.md
+└── build/ # Generated executables (created by make) 
+         └── imu_parser
+
 ## Overview
 This project implements a C++ IMU parser that reads data from a UART device and broadcasts parsed results over the network, along with a Python simulator for testing.
 
