@@ -10,9 +10,8 @@ This project implements a C++ IMU parser that reads data from a UART device and 
 - Broadcast results on localhost network
 - Python simulator for testing
 
-## Implementation Notes
-
 ### UART Parser
+The code was developed on macoS Ventura 13.7.4, and thus required flexibility to test on this environment while also running on the desired /dev/ttys1 UART on linux. This is apparent in the main code allowing for argument passing of virtual ports and in the API when setting the baud rate.
 
 ### Testing Setup
 For development and testing, virtual serial ports are recommended:
@@ -55,6 +54,9 @@ on mac sudo isn't required for using the virtual ports
 socat -d -d pty,raw,echo=0 pty,raw,echo=0
 
 # Terminal 2: Run parser
+# NOTE: The ports listed in the arguments might vary based on the
+# ports created by the first terminal.
+
 # linux
 ./build/imu_parser /dev/pts/2
 
@@ -65,7 +67,7 @@ socat -d -d pty,raw,echo=0 pty,raw,echo=0
 cd test
 python3 imu_simulator.py
 
-# Terminal 4: Read data from pipe
+# Terminal 4: Read data from pipe created in terminal 4.
 cat /dev/tmp/imu_data | hexdump -C
 ```
 
